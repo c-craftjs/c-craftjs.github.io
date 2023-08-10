@@ -1,5 +1,7 @@
 # C-CraftJS: Creative Innovations Harnessing Uniqueness Yearning - JavaScript
 
+ [LOGO](./logo/C-CRAFTJS.png)
+
 C-CraftJS adalah sebuah konsep pengembangan yang terpancar dari keinginan untuk menghasilkan solusi yang unik dan inovatif dalam dunia pemrograman. Singkatan "C-CraftJS" C = CIHUY, CIHUY sendiri mencerminkan nilai-nilai penting yang terkait dengan pengembangan menggunakan bahasa pemrograman JavaScript. Di dalamnya terdapat esensi:
 
 # C Creative: 
