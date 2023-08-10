@@ -26,4 +26,5 @@ C-CraftJS adalah alat yang menghubungkan antara semangat kreativitas, inovasi, p
 
 
 
-* [cookie](https://christyuda.github.io/CihuyJs/Cookies/cookies.js)
+* [Cookie-of-Cihuy](https://christyuda.github.io/CihuyJs/Cookies/cookies.js)
+* [Element-of-Cihuy](https://christyuda.github.io/CihuyJs/Element/element.js)
