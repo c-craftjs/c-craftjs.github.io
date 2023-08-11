@@ -44,7 +44,7 @@ export async function CihuyPostWithToken(url, body, token) {
 }
 
 // Fungsi untuk melakukan permintaan GET dengan header "login" dari nilai cookie QrCode WhatsAuth
-export async function CihuyGetWithCookie(url, cookieName) {
+export async function CihuyGetWithCookieLogin(url, cookieName) {
     const cookies = document.cookie.split('; ');
     let cookieValue = null;
   
@@ -59,7 +59,7 @@ export async function CihuyGetWithCookie(url, cookieName) {
     const response = await fetch(url, {
       headers: {
         'Content-Type': 'application/json',
-        login: cookieValue
+        LOGIN: cookieValue
       }
     });
   
