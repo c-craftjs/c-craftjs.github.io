@@ -58,7 +58,6 @@ export async function CihuyGetWithCookieLogin(url, cookieName) {
   
     const response = await fetch(url, {
       headers: {
-        'Content-Type': 'application/json',
         LOGIN: cookieValue
       }
     });
