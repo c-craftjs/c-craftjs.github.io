@@ -5,6 +5,14 @@ export async function CihuyGet(url) {
     const data = await response.json();
     return data;
   }
+
+//fungsi get withheader
+
+export async function CihuyGetwithHeaders(url, headers = {}) {
+    return fetch(url, { headers })
+    .then(response => response.json());
+  }
+  
 // Fungsi untuk melakukan permintaan POST tanpa otentikasi
 export async function CihuyPost(url, body) {
     const response = await fetch(url, {
