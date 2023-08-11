@@ -81,14 +81,16 @@ https://templatemo.com/tm-590-topic-listing
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 col-8 m-auto">
-                            <h3 class="mb-4">CreateElement(tagName, attributes):</h3>
-                            <p><strong>Fungsi ini digunakan</strong> untuk membuat elemen HTML baru dengan tag yang ditentukan. Anda dapat memberikan atribut yang akan diterapkan pada elemen tersebut dalam bentuk objek.</p>
+                            <h3 class="mb-4">CihuyGet(url):</h3>
+                            <p><strong>Fungsi ini digunakan</strong> untuk melakukan permintaan GET tanpa otentikasi. Fungsi ini menggunakan fetch untuk mengambil data dari URL yang diberikan. Ini mengembalikan data yang diterima dari respons dalam bentuk objek JSON.</p>
                             <p><button>Contoh penggunaan:</button></p>
                             <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                                 <div class="d-flex">
                                     <div class="custom-block-topics-listing-info d-flex">
                                         <div>
-                                            <code>const divElement = CihuyCreateElement('div', { class: 'my-div', id: 'unique-id' });</code>
+                                            <code>const getData = async () => {const data = await CihuyGet('https://api.example.com/data');</code>
+                                            <code>console.log(data);};</code>
+                                            <code>getData();</code>
                                         </div>
                                     </div>
                                 </div>
@@ -97,16 +99,23 @@ https://templatemo.com/tm-590-topic-listing
                         </div>
 
                         <div class="col-lg-8 col-8 m-auto">
-                            <h3 class="mb-4"># addClass(element, className):</h3>
-                            <p><strong>Fungsi ini digunakan</strong>untuk menambahkan kelas tertentu ke elemen HTML yang ada. Ini berguna untuk merubah tampilan atau gaya elemen melalui CSS.</p>
+                            <h3 class="mb-4">CihuyPost(url, body):</h3>
+                            <p><strong>Fungsi ini digunakan</strong>melakukan permintaan POST tanpa otentikasi. Fungsi ini menggunakan fetch dengan metode POST dan menyertakan header "Content-Type" sebagai "application/json". Data dalam body akan diubah menjadi string JSON sebelum dikirim. Fungsi ini juga mengembalikan data dari respons dalam bentuk objek JSON.</p>
                             <p><button>Contoh penggunaan:</button></p>
                             <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                                 <div class="d-flex">
                                     <div class="custom-block-topics-listing-info d-flex">
                                         <div>
                                             <code>
-                                                const myElement = document.getElementById('my-element');</code><br>                                               
-                                                <code>CihuyAddClass(myElement, 'highlight');</code>
+                                                const postData = async () => {
+                                                    const requestBody = { key: 'value' };
+                                                    const response = await CihuyPost('https://api.example.com/submit', requestBody);
+                                                    console.log(response);
+                                                  };
+                                            </code>
+                                            <code>postData();</code> 
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -115,16 +124,21 @@ https://templatemo.com/tm-590-topic-listing
                         </div>
 
                         <div class="col-lg-8 col-8 m-auto">
-                            <h3 class="mb-4"># removeClass(element, className):</h3>
-                            <p><strong>Fungsi ini digunakan</strong>untuk menghapus kelas tertentu dari elemen HTML yang ada. Ini berguna ketika Anda ingin menghapus efek atau gaya yang sebelumnya diterapkan melalui CSS.</p>
+                            <h3 class="mb-4">CihuyGetWithToken(url, token):</h3>
+                            <p><strong>Fungsi ini digunakan</strong>untuk melakukan permintaan GET dengan token otentikasi. Fungsi ini menggunakan fetch dengan menyertakan header "Authorization" yang berisi token bearer. Ini mengambil data dari URL yang diberikan dan mengembalikan data dalam bentuk objek JSON.</p>
                             <p><button>Contoh penggunaan:</button></p>
                             <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                                 <div class="d-flex">
                                     <div class="custom-block-topics-listing-info d-flex">
                                         <div>
                                             <code>
-                                                const myElement = document.getElementById('my-element');</code><br>                                               
-                                                <code>CihuyRemoveClass(myElement, 'highlight');</code>
+                                                const getTokenData = async () => {
+                                                    const authToken = 'your_auth_token_here';
+                                                    const data = await CihuyGetWithToken('https://api.example.com/secure-data', authToken);
+                                                    console.log(data);
+                                                  };
+                                                  <br>
+                                                <code>getTokenData();</code>
                                         </div>
                                     </div>
                                 </div>
@@ -138,36 +152,46 @@ https://templatemo.com/tm-590-topic-listing
                             
                         </div>
                         <div class="col-lg-8 col-8 m-auto">
-                            <h3 class="mb-4"># CihuyId(id):</h3>
-                            <p><strong>Fungsi ini </strong>akan mendapatkan elemen dari dokumen berdasarkan ID yang Anda tentukan sebagai argumen. Itu akan mengembalikan elemen dengan ID yang cocok.</p>
+                            <h3 class="mb-4">CihuyPostWithToken(url, body, token):</h3>
+                            <p><strong>Fungsi ini </strong>untuk melakukan permintaan POST dengan token otentikasi. Fungsi ini menggunakan fetch dengan metode POST dan menyertakan header "Content-Type" sebagai "application/json" dan header "Authorization" dengan token bearer. Data dalam body akan diubah menjadi string JSON sebelum dikirim. Fungsi ini juga mengembalikan data dari respons dalam bentuk objek JSON.</p>
                             <p><button>Contoh penggunaan:</button></p>
                             <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                                 <div class="d-flex">
                                     <div class="custom-block-topics-listing-info d-flex">
                                         <div>
-                                            <code> const myElement = CihuyId('my-element');
+                                            <code> const postTokenData = async () => {
+                                                const authToken = 'your_auth_token_here';
+                                                const requestBody = { key: 'value' };
+                                                const response = await CihuyPostWithToken('https://api.example.com/secure-submit', requestBody, authToken);
+                                                console.log(response);
+                                              };
                                             </code><br>                                               
-                                            <code></code>
+                                            <code>postTokenData();</code>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-8 col-8 m-auto">
-                            <h3 class="mb-4"> # CihuyByClass(className):</h3>
-                            <p><strong>Fungsi ini digunakan</strong>akan mendapatkan daftar elemen dari dokumen yang memiliki kelas yang sesuai dengan className yang Anda berikan. Ini akan mengembalikan koleksi elemen dengan kelas yang cocok.</p>
+                            <h3 class="mb-4"> CihuyGetWithCookie(url, cookieName):</h3>
+                            <p><strong>Fungsi ini digunakan</strong>untuk melakukan permintaan GET dengan header "login" yang nilai cookie-nya diambil dari cookie dengan nama yang diberikan (cookieName). Fungsi ini menggunakan fetch dengan menyertakan header "login" yang berisi nilai cookie. Ini mengambil data dari URL yang diberikan dan mengembalikan data dalam bentuk objek JSON.</p>
                             <p><button>Contoh penggunaan:</button></p>
                             <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                                 <div class="d-flex">
                                     <div class="custom-block-topics-listing-info d-flex">
                                         <div>
-                                            <code>const myButtons = CihuyByClass('button');</code><br>                                               
-                                            <code></code>
+                                            <code>const getWithCookie = async () => {
+                                                const cookieName = 'myCookieName';
+                                                const data = await CihuyGetWithCookie('https://api.example.com/with-cookie', cookieName);
+                                                console.log(data);
+                                              };</code><br>                                               
+                                            <code>getWithCookie();</code>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-lg-8 col-8 m-auto">
                             <h3 class="mb-4"> # ElemByTag(tagName):
                             </h3>
