@@ -1,35 +1,28 @@
-export function CihuySortTableByColumn(table, columnIndex) {
+
+// Fungsi untuk mengurutkan tabel berdasarkan kolom tertentu
+export function CihuyTableByColumn(tableId, columnIndex, ascending = true) {
+    const table = document.getElementById(tableId);
     const rows = Array.from(table.querySelectorAll('tbody tr'));
-    
+
     rows.sort((rowA, rowB) => {
-      const cellA = rowA.cells[columnIndex].textContent.trim();
-      const cellB = rowB.cells[columnIndex].textContent.trim();
-      return cellA.localeCompare(cellB, undefined, { numeric: true, sensitivity: 'base' });
-    });
-  
-    const tbody = table.querySelector('tbody');
-    tbody.innerHTML = '';
-    
-    rows.forEach(row => {
-      tbody.appendChild(row);
-    });
-}
+        const cellA = rowA.cells[columnIndex].textContent.trim();
+        const cellB = rowB.cells[columnIndex].textContent.trim();
 
-export function CihuySortTable(tableSelector) {
-    const table = document.querySelector(tableSelector);
-    
-    if (!table) {
-      console.error('Table not found');
-      return;
+        return ascending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+    });
+
+    for (const row of rows) {
+        table.querySelector('tbody').appendChild(row);
     }
-
-    const headers = table.querySelectorAll('th');
-    
-    headers.forEach((header, columnIndex) => {
-      header.addEventListener('click', () => {
-        CihuySortTableByColumn(table, columnIndex);
-      });
-    });
 }
 
-CihuySortTable('#myTable');
+// Fungsi untuk menghubungkan event ke header tabel untuk memicu pengurutan
+export function CihuyTableSorting(tableId) {
+    const tableHeaders = document.querySelectorAll(`#${tableId} th`);
+    
+    tableHeaders.forEach((header, index) => {
+        header.addEventListener('click', () => {
+            sortTableByColumn(tableId, index);
+        });
+    });
+}
