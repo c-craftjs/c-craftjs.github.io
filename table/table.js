@@ -1,7 +1,7 @@
-
+import { CihuyId } from "./element/element.js";
 // Fungsi untuk mengurutkan tabel berdasarkan kolom tertentu
 export function CihuyTableByColumn(tableId, columnIndex, ascending = true) {
-    const table = document.getElementById(tableId);
+    const table = CihuyId(tableId);
     const rows = Array.from(table.querySelectorAll('tbody tr'));
 
     rows.sort((rowA, rowB) => {
