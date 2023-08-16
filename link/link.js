@@ -6,4 +6,4 @@ export function CihuyRootLink(href, text) {
     rootLink.textContent = text;
     document.body.appendChild(rootLink);
   }
-  
+  //perbaikan
