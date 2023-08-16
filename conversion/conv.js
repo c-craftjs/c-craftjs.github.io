@@ -60,7 +60,7 @@ export function CihuyObjtoJSON(obj) {
   }
         // jsontoobject
 
-export function CihuyJSONtoStr(jsonString) {
+export function CihuyJSONtoObj(jsonString) {
     try {
       const parsedObj = JSON.parse(jsonString);
       if (typeof parsedObj === 'object' && parsedObj !== null) {
