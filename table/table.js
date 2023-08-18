@@ -34,4 +34,8 @@ export function CihuyDomReady(callback) {
       callback();
     }
   }
+
+  export function CihuyQuerySelector(selector) {
+    return document.querySelectorAll(selector);
+  }
   
