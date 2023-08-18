@@ -1,4 +1,3 @@
-import { CihuyId } from "./element/element.js";
 // Fungsi untuk mengurutkan tabel berdasarkan kolom tertentu
 export function CihuyTableByColumn(tableId, columnIndex, ascending = true) {
     const table = CihuyId(tableId);
