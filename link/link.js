@@ -11,7 +11,7 @@ export function CihuyRootLink(href, text) {
 // 
 
 function CihuyTokRed(redirectUrl) {
-  const token = getTokenFromHeader();
+  const token = GetToken();
 
   if (!token) {
     window.location.href = redirectUrl;
@@ -21,13 +21,13 @@ function CihuyTokRed(redirectUrl) {
 }
 
 // Fungsi untuk mendapatkan token dari cookies
-function getTokenFromCookies() {
-  const cookies = parseCookies();
+function GetToken() {
+  const cookies = cekcookie();
   return cookies.token || "";
 }
 
 // Fungsi untuk mengurai cookies
-function parseCookies() {
+function cekcookie() {
   const cookiePairs = document.cookie.split("; ");
   const cookies = {};
 
@@ -38,3 +38,5 @@ function parseCookies() {
 
   return cookies;
 }
+
+//
