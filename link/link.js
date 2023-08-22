@@ -14,7 +14,7 @@ export function CihuyTokRed(redirectUrl) {
   const token = CihuyGetCookie();
 
   if (!token) {
-    window.location.href = redirectUrl;
+    window.location.assign = redirectUrl;
   } else {
     console.log("Token valid!");
   }
