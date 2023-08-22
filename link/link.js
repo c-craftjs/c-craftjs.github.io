@@ -11,7 +11,7 @@ export function CihuyRootLink(href, text) {
 // 
 
 function CihuyTokRed(redirectUrl) {
-  const token = GetToken();
+  const token = CihuyGetCookie();
 
   if (!token) {
     window.location.href = redirectUrl;
@@ -21,22 +21,16 @@ function CihuyTokRed(redirectUrl) {
 }
 
 // Fungsi untuk mendapatkan token dari cookies
-function GetToken() {
-  const cookies = cekcookie();
-  return cookies.token || "";
+export function CihuyGetCookie(name) {
+  const cookies = document.cookie.split('; ');
+  for (const cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.split('=');
+    if (cookieName === name) {
+      return cookieValue;
+    }
+  }
+  return null;
 }
 
-// Fungsi untuk mengurai cookies
-function cekcookie() {
-  const cookiePairs = document.cookie.split("; ");
-  const cookies = {};
-
-  cookiePairs.forEach(pair => {
-    const [key, value] = pair.split("=");
-    cookies[key] = decodeURIComponent(value);
-  });
-
-  return cookies;
-}
 
 //
