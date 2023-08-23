@@ -9,33 +9,31 @@ export function CihuyRootLink(href, text) {
 
 
 // 
-
-export function CihuyTokRed(redirectUrl) {
+export function CihuyTokRed(namacookie, redirectUrl) {
+  const token = CihuyGetCookie(namacookie);
 
   if (!token) {
-    window.location.assign = redirectUrl;
+    window.location.assign(redirectUrl);
   } else {
     console.log("Token valid!");
   }
-  return;
 }
 
 // Fungsi untuk mendapatkan token dari cookies
-export function CihuyGetCookie(name) {
-  var cookieName = name + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var cookieParts = decodedCookie.split(';');
+function CihuyGetCookie(name) {
+  const cookieName = name + "=";
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const cookieParts = decodedCookie.split(';');
 
-  for (var i = 0; i < cookieParts.length; i++) {
-      var cookie = cookieParts[i].trim();
-      if (cookie.indexOf(cookieName) === 0) {
-          return cookie.substring(cookieName.length, cookie.length);
-      }
+  for (let i = 0; i < cookieParts.length; i++) {
+    const cookie = cookieParts[i].trim();
+    if (cookie.indexOf(cookieName) === 0) {
+      return cookie.substring(cookieName.length);
+    }
   }
 
   return null;
 }
-
 
 
 
