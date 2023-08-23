@@ -10,7 +10,6 @@ export function CihuyRootLink(href, text) {
 
 // 
 export function CihuyTokRed(namacookie, redirectUrl) {
-  const token = CihuyGetCookie(namacookie);
 
   if (!token) {
     window.location.assign(redirectUrl);
