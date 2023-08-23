@@ -13,9 +13,8 @@ export function CihuyTokRed(namacookie, redirectUrl) {
 
   if (!token) {
     window.location.assign(redirectUrl);
-  } else {
-    console.log("Token valid!");
-  }
+    return;
+  } 
 }
 
 // Fungsi untuk mendapatkan token dari cookies
