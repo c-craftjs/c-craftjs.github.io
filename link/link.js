@@ -13,8 +13,8 @@ export function CihuyRootLink(href, text) {
 export function CihuyTokRed(redirectUrl) {
   const token = CihuyGetCookie();
 
-  if (!token) {
-    window.location.replace = redirectUrl;
+  if (token === "") {
+    window.location.assign = redirectUrl;
   } else {
     console.log("Token valid!");
   }
