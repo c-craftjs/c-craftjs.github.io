@@ -10,14 +10,15 @@ export function CihuyRootLink(href, text) {
 
 // 
 
-export function CihuyTokRed(redirectUrl) {
-  const token = CihuyGetCookie();
+export function CihuyTokRed(namacookie,redirectUrl) {
+  const token = CihuyGetCookie(namacookie);
 
-  if (token === "") {
+  if (!token) {
     window.location.assign = redirectUrl;
   } else {
     console.log("Token valid!");
   }
+  return;
 }
 
 // Fungsi untuk mendapatkan token dari cookies
