@@ -20,20 +20,17 @@ export function CihuyTokRed(namacookie, redirectUrl) {
 }
 
 // Fungsi untuk mendapatkan token dari cookies
-function CihuyGetCookie(name) {
-  const cookieName = name + "=";
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const cookieParts = decodedCookie.split(';');
-
-  for (let i = 0; i < cookieParts.length; i++) {
-    const cookie = cookieParts[i].trim();
-    if (cookie.indexOf(cookieName) === 0) {
-      return cookie.substring(cookieName.length);
+export function CihuyGetCookie(cookieName) {
+  var cookies = document.cookie.split(';');
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.indexOf(cookieName + '=') === 0) {
+      return true; 
     }
   }
-
-  return null;
+  return false;
 }
+
 
 
 
