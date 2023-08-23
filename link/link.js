@@ -10,6 +10,7 @@ export function CihuyRootLink(href, text) {
 
 // 
 export function CihuyTokRed(namacookie, redirectUrl) {
+  const token = CihuyGetCookie(namacookie);
 
   if (!token) {
     window.location.assign(redirectUrl);
@@ -20,8 +21,8 @@ export function CihuyTokRed(namacookie, redirectUrl) {
 // Fungsi untuk mendapatkan token dari cookies
 export function CihuyGetCookie(cookieName) {
   const cookies = document.cookie.split(';');
-  for (let i = 0; i < cookies.length; i++) {
-    let cookie = cookies[i].trim();
+  for (const i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
     if (cookie.indexOf(cookieName + '=') === 0) {
       return true; 
     }
