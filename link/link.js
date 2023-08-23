@@ -21,16 +21,21 @@ export function CihuyTokRed(redirectUrl) {
 }
 
 // Fungsi untuk mendapatkan token dari cookies
-export function CihuyGetCookie(name) {
-  const cookies = document.cookie.split('; ');
-  for (const cookie of cookies) {
-    const [cookieName, cookieValue] = cookie.split('=');
-    if (cookieName === name) {
-      return cookieValue;
-    }
+function CihuyGetCookie(name) {
+  var cookieName = name + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var cookieParts = decodedCookie.split(';');
+
+  for (var i = 0; i < cookieParts.length; i++) {
+      var cookie = cookieParts[i].trim();
+      if (cookie.indexOf(cookieName) === 0) {
+          return cookie.substring(cookieName.length, cookie.length);
+      }
   }
+
   return null;
 }
 
 
-//
+
+
