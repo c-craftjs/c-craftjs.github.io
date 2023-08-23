@@ -21,8 +21,8 @@ export function CihuyTokRed(namacookie, redirectUrl) {
 // Fungsi untuk mendapatkan token dari cookies
 export function CihuyGetCookie(cookieName) {
   const cookies = document.cookie.split(';');
-  for (const i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].trim();
+  for (let i = 0; i < cookies.length; i++) {
+    let cookie = cookies[i].trim();
     if (cookie.indexOf(cookieName + '=') === 0) {
       return true; 
     }
