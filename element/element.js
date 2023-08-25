@@ -80,5 +80,5 @@ export function CihuyAppendBody(element) {
 // }
 export function CihuyLinkClick(event, url) {
   event.preventDefault();
-  window.location.replace = url;
+  window.location.href = url;
 }
