@@ -74,8 +74,11 @@ export function CihuyAppendBody(element) {
     document.body.appendChild(element);
   }
 
-export function CihuyLinkClick(elementId) {
-    const linkElement = document.getElementById(elementId);
-    linkElement.addEventListener("click", handleLinkClick);
+// export function CihuyLinkClick(elementId) {
+//     const linkElement = document.getElementById(elementId);
+//     linkElement.addEventListener("click", handleLinkClick);
+// }
+export function CihuyLinkClick(event, url) {
+  event.preventDefault();
+  window.location.href = url;
 }
-  
