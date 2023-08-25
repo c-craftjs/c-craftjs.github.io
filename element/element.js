@@ -73,4 +73,9 @@ export function CihuyCreateModal(title, content) {
 export function CihuyAppendBody(element) {
     document.body.appendChild(element);
   }
+
+export function CihuyLinkClick(elementId) {
+    const linkElement = document.getElementById(elementId);
+    linkElement.addEventListener("click", handleLinkClick);
+}
   

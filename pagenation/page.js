@@ -10,6 +10,9 @@ CihuyDomReady(() => {
     let halamannow = 1;
   
     // tambahkan disini untuk get data
+
+
+
     function displayData(page) {
       const baris = CihuyQuerySelector("#tablebody tr");
       const mulaiindex = (page - 1) * itemperpage;
