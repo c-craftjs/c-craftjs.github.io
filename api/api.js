@@ -75,5 +75,27 @@ export async function CihuyGetWithCookieLogin(url, cookieName) {
   }
 
 
+// Fungsi Get Simpelbi
+export function CihuyGetSimpelbi(target_url, responseFunction) {
+  let requestOptions = {
+    method: "GET",
+    redirect: "follow",
+    headers: myHeaders,
+  };
+
+  fetch(target_url, requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then((result) => responseFunction(JSON.parse(result)))
+    .catch((error) => console.error("Error:", error));
+}
+export function ResponseGet(responseData) {
+  console.log(responseData);
+}
+
   
     
