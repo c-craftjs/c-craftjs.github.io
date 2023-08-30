@@ -22,6 +22,22 @@ export function CihuyGetCookie(cookieName) {
   return false;
 }
 
+export function CihuyRole(userRole) {
+  let dashboardUrl = '';
+
+  if (userRole === 'admin') {
+    dashboardUrl = 'dashboard.html';
+  } else if (userRole === 'prodi') {
+    dashboardUrl = 'dashboard-prodi.html';
+  } else {
+    // Tindakan jika rolenya tidak sesuai dengan yang diharapkan
+  }
+
+  if (dashboardUrl) {
+    window.location.href = dashboardUrl;
+  }
+}
+
 
 
 
