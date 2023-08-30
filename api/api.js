@@ -103,7 +103,10 @@ export async function CihuyGetWithCookieLogin(url, cookieName) {
 // }
 
 
-export function CihuyGetHeaders(url, headers) {
+export function CihuyGetHeaders(url, headers,token) {
+  const myHeaders = new Headers();
+  myHeaders.append("LOGIN", token);
+
   const requestOptions = {
     method: 'GET',
     headers: headers,
@@ -118,6 +121,8 @@ export function CihuyGetHeaders(url, headers) {
       throw error;
     });
 }
+
+
 
   
     
