@@ -98,9 +98,9 @@ export async function CihuyGetWithCookieLogin(url, cookieName) {
 // }
 
 
-// export function ResponseGet(responseData) {
-//   console.log(responseData);
-// }
+export function ResponseGet(responseData) {
+  console.log(responseData);
+}
 
 
 export function CihuyGetHeaders(url, headers,token) {
