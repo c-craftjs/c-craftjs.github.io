@@ -103,19 +103,23 @@ export function ResponseGet(responseData) {
 }
 
 
-export function CihuyGetHeaders(url, headers,token) {
+export function CihuyGetHeaders(url, token) {
   const myHeaders = new Headers();
   myHeaders.append("LOGIN", token);
 
   const requestOptions = {
     method: 'GET',
-    headers: headers,
+    headers: myHeaders,
     redirect: 'follow'
   };
 
   return fetch(url, requestOptions)
-    .then(response => response.text())
-    .then(result => result)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text();
+    })
     .catch(error => {
       console.error('Error:', error);
       throw error;
@@ -125,4 +129,3 @@ export function CihuyGetHeaders(url, headers,token) {
 
 
   
-    
