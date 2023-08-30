@@ -76,30 +76,47 @@ export async function CihuyGetWithCookieLogin(url, cookieName) {
 
 
 // Fungsi Get Simpelbi
-export function CihuyGetSimpelbi(target_url, responseFunction,token) {
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("Authorization", `Bearer ${token}`);
-  let requestOptions = {
-    method: "GET",
-    redirect: "follow",
-    headers: myHeaders,
+// export function CihuyGetSimpelbi(target_url, responseFunction,token) {
+//   const myHeaders = new Headers();
+//   myHeaders.append("Content-Type", "application/json");
+//   myHeaders.append("Authorization", `Bearer ${token}`);
+//   let requestOptions = {
+//     method: "GET",
+//     redirect: "follow",
+//     headers: myHeaders,
+//   };
+
+//   fetch(target_url, requestOptions)
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! Status: ${response.status}`);
+//       }
+//       return response.text();
+//     })
+//     .then((result) => responseFunction(JSON.parse(result)))
+//     .catch((error) => console.error("Error:", error));
+// }
+
+
+// export function ResponseGet(responseData) {
+//   console.log(responseData);
+// }
+
+
+export function CihuyGetHeaders(url, headers) {
+  const requestOptions = {
+    method: 'GET',
+    headers: headers,
+    redirect: 'follow'
   };
 
-  fetch(target_url, requestOptions)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then((result) => responseFunction(JSON.parse(result)))
-    .catch((error) => console.error("Error:", error));
-}
-
-
-export function ResponseGet(responseData) {
-  console.log(responseData);
+  return fetch(url, requestOptions)
+    .then(response => response.text())
+    .then(result => result)
+    .catch(error => {
+      console.error('Error:', error);
+      throw error;
+    });
 }
 
   
