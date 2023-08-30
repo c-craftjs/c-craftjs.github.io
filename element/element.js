@@ -84,3 +84,7 @@ export function CihuyClickListenenr(elementId, callback) {
   }
 }
 
+export function CihuyQuerySelector(selector) {
+  return document.querySelectorAll(selector);
+}
+
