@@ -127,7 +127,7 @@ export function CihuyGetHeaders(url, token) {
 }
 
 //untuk post kesana
-export function CihuyPostHeaders(url, token, postData) {
+export function CihuyPostHeaders(url, token) {
   const myHeaders = new Headers();
   myHeaders.append("LOGIN", token);
   myHeaders.append("Content-Type", "application/json"); // Set content type for JSON data
@@ -135,7 +135,6 @@ export function CihuyPostHeaders(url, token, postData) {
   const requestOptions = {
     method: 'POST',
     headers: myHeaders,
-    body: JSON.stringify(postData), // Convert postData to JSON string
     redirect: 'follow'
   };
 
