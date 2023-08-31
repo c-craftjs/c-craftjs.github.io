@@ -126,6 +126,33 @@ export function CihuyGetHeaders(url, token) {
     });
 }
 
+//untuk post kesana
+export function CihuyPostHeaders(url, token, postData) {
+  const myHeaders = new Headers();
+  myHeaders.append("LOGIN", token);
+  myHeaders.append("Content-Type", "application/json"); // Set content type for JSON data
+
+  const requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: JSON.stringify(postData), // Convert postData to JSON string
+    redirect: 'follow'
+  };
+
+  return fetch(url, requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      throw error;
+    });
+}
+
+
 
 
   
