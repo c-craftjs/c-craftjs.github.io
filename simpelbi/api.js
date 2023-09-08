@@ -11,7 +11,14 @@ export function CihuyDataAPI(apiUrl, token, callback) {
           'LOGIN': token, // Menambahkan header "LOGIN" dengan token
         }),
       };
-  
+      const gridOptions = {
+        columnDefs: columnDefs,
+        rowData: [] // Mulai dengan data kosong
+      };
+      
+      // Inisialisasi grid
+      const gridDiv = document.querySelector("#agGridContainer");
+      new agGrid.Grid(gridDiv, gridOptions);
     // Mengirim permintaan fetch ke URL API
     fetch(apiUrl, requestOptions)
       .then(response => {
@@ -24,6 +31,7 @@ export function CihuyDataAPI(apiUrl, token, callback) {
         // Memanggil callback dengan data yang diterima
         callback(null, data);    
         spinner.style.display = "none";
+        gridOptions.api.setRowData(data);
 
       })
       .catch(error => {
