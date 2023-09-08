@@ -24,7 +24,6 @@ export function CihuyDataAPI(apiUrl, token, callback) {
         // Memanggil callback dengan data yang diterima
         callback(null, data);    
         spinner.style.display = "none";
-        gridOptions.api.setRowData(data);
 
       })
       .catch(error => {
