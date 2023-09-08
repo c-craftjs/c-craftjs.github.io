@@ -1,13 +1,15 @@
 
 export function CihuyDataAPI(apiUrl, token, callback) {
     // Membuat objek konfigurasi untuk permintaan fetch
+
     const requestOptions = {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`, // Menggunakan token untuk otorisasi
-        'Content-Type': 'application/json',
-      },
-    };
+        method: 'GET',
+        headers: new Headers({
+          'Authorization': `Bearer ${token}`, // Menggunakan token untuk otorisasi
+          'Content-Type': 'application/json',
+          'LOGIN': token, // Menambahkan header "LOGIN" dengan token
+        }),
+      };
   
     // Mengirim permintaan fetch ke URL API
     fetch(apiUrl, requestOptions)
