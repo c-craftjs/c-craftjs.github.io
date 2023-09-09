@@ -33,3 +33,29 @@ export function CihuyDataAPI(apiUrl, token, callback) {
 
       });
   }
+
+
+  export function CihuyPostApi(url, token, data) {
+    const myHeaders = new Headers();
+    myHeaders.append("LOGIN", token);
+    myHeaders.append("Content-Type", "application/json"); // Mengubah Content-Type menjadi JSON
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(data), // Mengonversi objek JavaScript ke JSON
+        redirect: 'follow'
+    };
+
+    return fetch(url, requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            throw error;
+        });
+}
