@@ -1,8 +1,8 @@
 
 export function CihuyDataAPI(apiUrl, token, callback) {
     // Membuat objek konfigurasi untuk permintaan fetch
-    const spinner = tableBody.querySelector(".spinner");
-    spinner.style.display = "block";
+    // const spinner = tableBody.querySelector(".spinner");
+    // spinner.style.display = "block";
     const requestOptions = {
         method: 'GET',
         headers: new Headers({
