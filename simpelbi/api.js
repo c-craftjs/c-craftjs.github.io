@@ -23,13 +23,13 @@ export function CihuyDataAPI(apiUrl, token, callback) {
       .then(data => {
         // Memanggil callback dengan data yang diterima
         callback(null, data);    
-        spinner.style.display = "none";
+        // spinner.style.display = "none";
 
       })
       .catch(error => {
         // Memanggil callback dengan kesalahan yang terjadi
         callback(error, null);
-        spinner.style.display = "none";
+        // spinner.style.display = "none";
 
       });
   }
