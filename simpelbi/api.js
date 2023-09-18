@@ -59,3 +59,29 @@ export function CihuyDataAPI(apiUrl, token, callback) {
             throw error;
         });
 }
+
+
+export function CihuyDeleteAPI(apiUrl, token, callback) {
+  const requestOptions = {
+      method: 'DELETE', // Menggunakan metode DELETE
+      headers: new Headers({
+        'Authorization': `Bearer ${token}`, // Menggunakan token untuk otorisasi
+        'Content-Type': 'application/json',
+        'LOGIN': token, // Menambahkan header "LOGIN" dengan token
+      }),
+  };
+
+  fetch(apiUrl, requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json(); // Menguraikan respons JSON
+    })
+    .then(data => {
+      callback(null, data);    
+    })
+    .catch(error => {
+      callback(error, null);
+    });
+}
