@@ -60,6 +60,35 @@ export function CihuyDataAPI(apiUrl, token, callback) {
         });
 }
 
+export function CihuyUpdateAPI(apiUrl, token, data, callback) {
+  const myHeaders = new Headers();
+  myHeaders.append("Authorization", `Bearer ${token}`);
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("LOGIN", token);
+
+  const requestOptions = {
+    method: 'PUT', // Anda bisa mengganti metode menjadi 'PATCH' jika sesuai dengan API Anda
+    headers: myHeaders,
+    body: JSON.stringify(data),
+    redirect: 'follow'
+  };
+
+  fetch(apiUrl, requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      callback(null, data);
+    })
+    .catch(error => {
+      callback(error, null);
+    });
+}
+
+
 
 export function CihuyDeleteAPI(apiUrl, token, callback) {
   const requestOptions = {
