@@ -60,7 +60,7 @@ export function CihuyDataAPI(apiUrl, token, callback) {
         });
 }
 
-export function CihuyUpdateAPI(apiUrl, token, data, callback) {
+export function CihuyUpdateApi(apiUrl, token, data, callback) {
   const myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
   myHeaders.append("Content-Type", "application/json");
