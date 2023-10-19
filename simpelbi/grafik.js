@@ -6,7 +6,8 @@ export function CihuyBarChart(data) {
   
     // Ambil label dataset dari nama kolom di data
     const datasetLabels = Object.keys(data[0]).filter((key) => key !== "prodi");
-  
+    ctx.canvas.width = 20; // Ganti dengan lebar yang lebih kecil jika perlu
+    ctx.canvas.height = 20; // Ganti dengan tinggi yang lebih kecil jika perlu
     // Loop melalui datasetLabels dan buat dataset untuk setiap label
     datasetLabels.forEach((label) => {
       const datasetData = data.map((item) => parseInt(item[label]));
@@ -17,6 +18,8 @@ export function CihuyBarChart(data) {
         backgroundColor: CihuyRandomColor(), 
         borderColor: CihuyRandomColor(),
         borderWidth: 1,
+        barPercentage: 0.2, // Atur lebar batang sesuai keinginan
+        categoryPercentage: 0.1, // Atur jarak antar batang sesuai keinginan
       });
     });
   
