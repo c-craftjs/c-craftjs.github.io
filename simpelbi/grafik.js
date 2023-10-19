@@ -32,8 +32,19 @@ export function CihuyBarChart(data) {
             beginAtZero: true,
           },
         },
-        responsive: true, // Membuat grafik menjadi responsif
-    maintainAspectRatio: false, // Menonaktifkan rasio aspek (aspect ratio)
+        plugins: {
+            legend: {
+              display: true,
+              position: 'top',
+            },
+          },
+          elements: {
+            bar: {
+              borderWidth: 1, // Lebar garis batang
+              barPercentage: 0.5, // Mengatur lebar relatif batang (0.5 adalah setengah lebar default)
+              categoryPercentage: 0.7, // Mengatur lebar relatif kategori (0.7 adalah 70% lebar default)
+            },
+          },
       },
     });
   }
