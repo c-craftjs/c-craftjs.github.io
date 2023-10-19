@@ -6,7 +6,7 @@ export function CihuyBarChart(data) {
   
     // Ambil label dataset dari nama kolom di data
     const datasetLabels = Object.keys(data[0]).filter((key) => key !== "prodi");
-    ctx.canvas.width = 20; // Ganti dengan lebar yang lebih kecil jika perlu
+    ctx.canvas.width = 200; // Ganti dengan lebar yang lebih kecil jika perlu
     ctx.canvas.height = 20; // Ganti dengan tinggi yang lebih kecil jika perlu
     // Loop melalui datasetLabels dan buat dataset untuk setiap label
     datasetLabels.forEach((label) => {
