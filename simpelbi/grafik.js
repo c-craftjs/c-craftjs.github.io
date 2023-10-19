@@ -14,8 +14,8 @@ export function CihuyBarChart(data) {
       datasets.push({
         label: label,
         data: datasetData,
-        backgroundColor: getRandomColor(), // Fungsi untuk mendapatkan warna acak
-        borderColor: getRandomColor(), // Fungsi untuk mendapatkan warna acak
+        backgroundColor: CihuyRandomColor(), // Fungsi untuk mendapatkan warna acak
+        borderColor: CihuyRandomColor(), // Fungsi untuk mendapatkan warna acak
         borderWidth: 1,
       });
     });
@@ -37,7 +37,7 @@ export function CihuyBarChart(data) {
   }
   
   // Fungsi untuk mendapatkan warna acak
-  function getRandomColor() {
+  function CihuyRandomColor() {
     const letters = "0123456789ABCDEF";
     let color = "#";
     for (let i = 0; i < 6; i++) {
