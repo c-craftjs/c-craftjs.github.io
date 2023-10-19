@@ -41,7 +41,7 @@ export function CihuyBarChart(data) {
           elements: {
             bar: {
               borderWidth: 1, // Lebar garis batang
-              barPercentage: 0.1, // Mengatur lebar relatif batang (0.5 adalah setengah lebar default)
+              barPercentage: 0.05, // Mengatur lebar relatif batang (0.5 adalah setengah lebar default)
               categoryPercentage: 0.1, // Mengatur lebar relatif kategori (0.7 adalah 70% lebar default)
             },
           },
