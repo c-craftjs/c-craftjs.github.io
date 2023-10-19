@@ -14,8 +14,8 @@ export function CihuyBarChart(data) {
       datasets.push({
         label: label,
         data: datasetData,
-        backgroundColor: CihuyRandomColor(), // Fungsi untuk mendapatkan warna acak
-        borderColor: CihuyRandomColor(), // Fungsi untuk mendapatkan warna acak
+        backgroundColor: CihuyRandomColor(), 
+        borderColor: CihuyRandomColor(),
         borderWidth: 1,
       });
     });
@@ -32,6 +32,8 @@ export function CihuyBarChart(data) {
             beginAtZero: true,
           },
         },
+        responsive: true, // Membuat grafik menjadi responsif
+    maintainAspectRatio: false, // Menonaktifkan rasio aspek (aspect ratio)
       },
     });
   }
