@@ -3,6 +3,8 @@ import { CihuyGetCookie } from "https://c-craftjs.github.io/cookies/cookies.js";
 
  const token = CihuyGetCookie("login");
 
+  const UrlProfile = "https://simbe-dev.ulbi.ac.id/api/v1/profile/";
+
 export function populateUserProfile() {
     CihuyDataAPI(UrlProfile, token, (error, response) => {
       if (error) {
