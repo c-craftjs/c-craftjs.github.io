@@ -93,6 +93,36 @@ export function CihuyUpdateApi(apiUrl, token, data, callback) {
       callback(error, null);
     });
 }
+export function CihuyUpdateApi2(apiUrl, token, data) {
+  return new Promise((resolve, reject) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("LOGIN", token);
+
+    const requestOptions = {
+      method: 'PUT',
+      headers: myHeaders,
+      body: JSON.stringify(data),
+      redirect: 'follow'
+    };
+
+    fetch(apiUrl, requestOptions)
+      .then(response => {
+        if (!response.ok) {
+          reject(new Error(`HTTP error! Status: ${response.status}`));
+        }
+        return response.json();
+      })
+      .then(responseData => {
+        resolve(responseData);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
 
 
 export function CihuyDeleteAPI(apiUrl, token, callback) {
