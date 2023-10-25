@@ -93,6 +93,8 @@ export function CihuyUpdateApi(apiUrl, token, data, callback) {
       callback(error, null);
     });
 }
+
+//FUNGSI UPDATE DIBAWAH DENGAN MENGEMBALIKAN PROMISE YA
 export function CihuyUpdateApi2(apiUrl, token, data) {
   return new Promise((resolve, reject) => {
     const myHeaders = new Headers();
