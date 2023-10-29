@@ -6,6 +6,45 @@ export async function CihuyGet(url) {
     return data;
   }
 
+// Fungsi untuk melakukan permintaan POST tanpa otentikasi
+export async function CihuyPost(url, body) {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+  const data = await response.json();
+  return data;
+}
+
+
+ // Fungsi untuk melakukan permintaan PUT (Update) tanpa otentikasi
+export async function CihuyUpdate(url, body) {
+  const response = await fetch(url, {
+    method: 'PUT', // Menggunakan metode PUT untuk permintaan update
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+  const data = await response.json();
+  return data;
+}
+
+// Fungsi untuk melakukan permintaan DELETE tanpa otentikasi
+export async function CihuyDelete(url) {
+  const response = await fetch(url, {
+    method: 'DELETE', // Menggunakan metode DELETE untuk permintaan penghapusan
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  const data = await response.json();
+  return data;
+} 
+
 //fungsi get withheader
 
 export async function CihuyGetwithHeaders(url, headers = {}) {
@@ -13,19 +52,6 @@ export async function CihuyGetwithHeaders(url, headers = {}) {
     .then(response => response.json());
   }
   
-// Fungsi untuk melakukan permintaan POST tanpa otentikasi
-export async function CihuyPost(url, body) {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
-    });
-    const data = await response.json();
-    return data;
-  }
-
 // Fungsi untuk melakukan permintaan GET dengan token otentikasi
 export async function CihuyGetWithToken(url, token) {
     const response = await fetch(url, {
