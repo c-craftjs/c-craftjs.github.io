@@ -1,4 +1,4 @@
-export function paginationPackage(data, itemsPerPage, containerId, itemRenderer, currentPage, maxPagesToShow) {
+export function CihuyPaginations(data, itemsPerPage, containerId, itemRenderer, currentPage, maxPagesToShow) {
     const tableBody = document.getElementById(containerId);
     const paginationContainer = document.querySelector(".dm-pagination");
   
@@ -84,4 +84,8 @@ export function paginationPackage(data, itemsPerPage, containerId, itemRenderer,
     displayPage(current);
     updatePagination();
   }
+  
+
+
+  //cara penggunaan
   
