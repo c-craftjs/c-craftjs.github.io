@@ -19,7 +19,7 @@ export function paginationPackage(data, itemsPerPage, containerId, itemRenderer,
     }
   
     // Fungsi untuk mengupdate tampilan pagination
-    export function updatePagination() {
+     function updatePagination() {
       paginationContainer.innerHTML = "";
   
       // Hitung halaman yang akan ditampilkan
