@@ -91,5 +91,55 @@ export function CihuyPaginations(data, itemsPerPage, containerId, itemRenderer, 
   
 
 
-  //cara penggunaan
+export function CihuyPaginations2(data, currentPage, itemsPerPage, paginationContainer, onPageChange) {
+  paginationContainer.innerHTML = "";
+
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const pagesPerGroup = 1;
+
+  const groupNumber = Math.ceil(currentPage / pagesPerGroup);
+  const startPage = (groupNumber - 1) * pagesPerGroup + 1;
+  const endPage = Math.min(startPage + pagesPerGroup - 1, totalPages);
+
+  if (currentPage > 1) {
+    // Add "<" button
+    const previousButton = document.createElement("a");
+    previousButton.href = "#";
+    previousButton.classList.add("dm-pagination__link");
+    previousButton.textContent = "<";
+    previousButton.addEventListener("click", () => {
+      onPageChange(currentPage - 1);
+    });
+    paginationContainer.appendChild(previousButton);
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
+    const pageLink = document.createElement("a");
+    pageLink.href = "#";
+    pageLink.classList.add("dm-pagination__link");
+    pageLink.textContent = i;
+
+    pageLink.addEventListener("click", () => {
+      onPageChange(i);
+    });
+
+    if (i === currentPage) {
+      pageLink.classList.add("active");
+    }
+
+    paginationContainer.appendChild(pageLink);
+  }
+
+  if (currentPage < totalPages) {
+    // Add ">" button
+    const nextButton = document.createElement("a");
+    nextButton.href = "#";
+    nextButton.classList.add("dm-pagination__link");
+    nextButton.textContent = ">";
+    nextButton.addEventListener("click", () => {
+      onPageChange(currentPage + 1);
+    });
+    paginationContainer.appendChild(nextButton);
+  }
+}
   
