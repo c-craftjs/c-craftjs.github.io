@@ -79,6 +79,10 @@ export function CihuyPaginations(data, itemsPerPage, containerId, itemRenderer, 
         }
       });
       paginationContainer.appendChild(nextButton);
+      
+    } function fillTableWithData(data) {
+      const tableBody = document.getElementById(containerId);
+      tableBody.innerHTML = dataRenderer(data);
     }
   
     displayPage(current);
