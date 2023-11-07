@@ -124,10 +124,27 @@ export async function CihuyGetWithCookieLogin(url, cookieName) {
 // }
 
 
-export function ResponseGet(responseData) {
-  console.log(responseData);
-}
+// export function ResponseGet(responseData) {
+//   console.log(responseData);
+// }
 
+export async function CihuyGet(url) {
+  const response = await fetch(url);
+  
+  if (!response.ok) {
+    // Handle non-OK responses here
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+
+  const contentType = response.headers.get("Content-Type");
+  
+  if (contentType && contentType.includes("application/json")) {
+    const data = await response.json();
+    return data;
+  } else {
+    throw new Error("Response is not in JSON format");
+  }
+}
 
 export function CihuyGetHeaders(url, token) {
   const myHeaders = new Headers();
@@ -176,6 +193,8 @@ export function CihuyPostHeaders(url, token) {
       throw error;
     });
 }
+
+
 
 
 
