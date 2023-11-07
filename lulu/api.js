@@ -38,12 +38,12 @@ export function CihuyDataAPI(apiUrl, token, callback) {
   export function CihuyPostApi(url, token, data) {
     const myHeaders = new Headers();
     myHeaders.append("LOGIN", token);
-    myHeaders.append("Content-Type", "application/json"); // Mengubah Content-Type menjadi JSON
+    myHeaders.append("Content-Type", "application/json"); 
 
     const requestOptions = {
         method: 'POST',
         headers: myHeaders,
-        body: JSON.stringify(data), // Mengonversi objek JavaScript ke JSON
+        body: JSON.stringify(data), 
         redirect: 'follow'
     };
 
