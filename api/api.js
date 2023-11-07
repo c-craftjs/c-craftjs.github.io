@@ -1,6 +1,6 @@
 
 // Fungsi untuk melakukan permintaan GET tanpa otentikasi
-export async function CihuyGet(url) {
+export async function CihuyGetOne(url) {
     const response = await fetch(url);
     const data = await response.json();
     return data;
