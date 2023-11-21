@@ -1,4 +1,5 @@
 
+
 export function CihuyDataAPI(apiUrl, token, callback) {
     // Membuat objek konfigurasi untuk permintaan fetch
     // const spinner = tableBody.querySelector(".spinner");
@@ -33,6 +34,33 @@ export function CihuyDataAPI(apiUrl, token, callback) {
 
       });
   }
+
+  export function CihuyWithoutToken(apiUrl, callback) {
+    // Membuat objek konfigurasi untuk permintaan fetch
+    const requestOptions = {
+      method: 'GET',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    };
+  
+    fetch(apiUrl, requestOptions)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // Menguraikan respons JSON
+      })
+      .then(data => {
+        // Memanggil callback dengan data yang diterima
+        callback(null, data);
+      })
+      .catch(error => {
+        // Memanggil callback dengan kesalahan yang terjadi
+        callback(error, null);
+      });
+  }
+  
 
 
   export function CihuyPostApi(url, token, data) {
