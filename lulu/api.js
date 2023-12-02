@@ -197,17 +197,13 @@ export function CihuyLoginApi(email, password) {
               throw new Error(`HTTP error! Status: ${response.status}`);
           }
 
-          // Assuming the response contains a token field
           return response.json();
       })
       .then(data => {
-          // Assuming the token is in the "token" field of the response
           const token = data.token;
 
-          // Set the token as a cookie named "login"
           document.cookie = `login=${token}; path=/`;
 
-          // Return the token for further use if needed
           return token;
       })
       .catch(error => {
