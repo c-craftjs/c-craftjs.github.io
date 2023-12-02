@@ -176,3 +176,42 @@ export function CihuyPostWithoutToken(url, data) {
           throw error;
       });
 }
+
+
+export function CihuyLoginApi(email, password) {
+  const url = 'https://komarbe.ulbi.ac.id/pendaftar/login/email';
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify({ email, password }),
+      redirect: 'follow'
+  };
+
+  return fetch(url, requestOptions)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          // Assuming the response contains a token field
+          return response.json();
+      })
+      .then(data => {
+          // Assuming the token is in the "token" field of the response
+          const token = data.token;
+
+          // Set the token as a cookie named "login"
+          document.cookie = `login=${token}; path=/`;
+
+          // Return the token for further use if needed
+          return token;
+      })
+      .catch(error => {
+          console.error('Error:', error);
+          throw error;
+      });
+}
