@@ -151,3 +151,28 @@ export function CihuyDeleteAPI(apiUrl, token, callback) {
       callback(error, null);
     });
 }
+
+
+export function CihuyPostWithoutToken(url, data) {
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify(data),
+      redirect: 'follow'
+  };
+
+  return fetch(url, requestOptions)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.text();
+      })
+      .catch(error => {
+          console.error('Error:', error);
+          throw error;
+      });
+}
