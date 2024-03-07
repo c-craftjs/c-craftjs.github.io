@@ -1,4 +1,4 @@
-async function uploadFileToGitHub(
+async function CihuyFileUploadGithub(
   content,
   fileName,
   githubToken,
@@ -51,4 +51,4 @@ async function uploadFileToGitHub(
   }
 }
 
-export { uploadFileToGitHub };
+export { CihuyFileUploadGithub };
