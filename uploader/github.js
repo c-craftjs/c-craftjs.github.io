@@ -30,7 +30,7 @@ async function CihuyFileUploadGithub(
 
     const githubRequestBody = {
       message: "add new file",
-      content: Buffer.from(content).toString("base64"),
+      content: btoa(content),
       sha: existingFileResponse
         ? (await existingFileResponse.json()).sha
         : undefined,
