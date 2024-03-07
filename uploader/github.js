@@ -1,26 +1,27 @@
-const cihuyUploadGithub = async (
+async function uploadFileToGitHub(
   content,
   fileName,
-  token,
-  repoOwner,
-  repoName,
-  branch = "main"
-) => {
-  const githubApiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${fileName}`;
-
+  githubToken,
+  githubRepoOwner,
+  githubRepoName,
+  branchName = "main"
+) {
   try {
+    const githubApiUrl = `https://api.github.com/repos/${githubRepoOwner}/${githubRepoName}/contents/${fileName}`;
+    const githubHeaders = {
+      Authorization: `Bearer ${githubToken}`,
+      "Content-Type": "application/json",
+    };
+
+    // Check if the file exists before creating or updating
     let existingFileResponse;
     try {
       existingFileResponse = await fetch(githubApiUrl, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        method: "GET",
+        headers: githubHeaders,
       });
-      if (!existingFileResponse.ok) {
-        throw new Error(existingFileResponse.statusText);
-      }
     } catch (error) {
-      if (existingFileResponse.status === 404) {
+      if (error.response && error.response.status === 404) {
         console.log("File not found. It will be created.");
       } else {
         throw error;
@@ -29,27 +30,25 @@ const cihuyUploadGithub = async (
 
     const githubRequestBody = {
       message: "add new file",
-      content: btoa(content),
-      branch: branch,
+      content: Buffer.from(content).toString("base64"),
+      sha: existingFileResponse
+        ? (await existingFileResponse.json()).sha
+        : undefined,
+      branch: branchName,
     };
 
     const response = await fetch(githubApiUrl, {
       method: "PUT",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
+      headers: githubHeaders,
       body: JSON.stringify(githubRequestBody),
     });
 
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    return response.json();
+    const responseData = await response.json();
+    return responseData;
   } catch (error) {
-    throw new Error(`Error uploading file to GitHub: ${error.message}`);
+    console.error("Error uploading file to GitHub:", error.message);
+    throw error;
   }
-};
+}
 
-export default cihuyUploadGithub;
+export { uploadFileToGitHub };
