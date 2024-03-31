@@ -70,7 +70,7 @@ export function CihuyGetAPI(apiUrl, token, callback) {
         method: 'POST',
         headers: myHeaders,
         body: JSON.stringify(data),
-        redirect: 'follow'
+        
     };
     console.log('Sending request to:', url);
     console.log('Request body:', data);
