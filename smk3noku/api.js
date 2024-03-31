@@ -179,3 +179,16 @@ export function CihuyDeleteAPI(apiUrl, token, callback) {
       callback(error, null);
     });
 }
+
+export async function CihuyPostApi2(url, body, token) {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}` 
+    },
+    body: JSON.stringify(body)
+  });
+  const data = await response.json();
+  return data;
+}
