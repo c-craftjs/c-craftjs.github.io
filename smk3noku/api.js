@@ -70,7 +70,8 @@ export function CihuyGetAPI(apiUrl, token, callback) {
         body: JSON.stringify(data),
         redirect: 'follow'
     };
-
+    console.log('Sending request to:', url);
+    console.log('Request body:', data);
     return fetch(url, requestOptions)
         .then(response => {
             if (!response.ok) {
