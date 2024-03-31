@@ -62,7 +62,7 @@ export function CihuyGetAPI(apiUrl, token, callback) {
 
   export function CihuyPostApi(url, token, data) {
     const myHeaders = new Headers();
-    myHeaders.append("access_token", token); // Menambahkan token ke dalam header
+    myHeaders.append("Authorization", `Bearer ${token}`); // Menambahkan token dengan metode Bearer authorization
 
     const requestOptions = {
         method: 'POST',
@@ -83,6 +83,7 @@ export function CihuyGetAPI(apiUrl, token, callback) {
             throw error;
         });
 }
+
 
 export function CihuyUpdateApi(apiUrl, token, data, callback) {
   const myHeaders = new Headers();
