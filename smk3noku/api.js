@@ -63,7 +63,7 @@ export function CihuyGetAPI(apiUrl, token, callback) {
   export function CihuyPostApi(url, token, data) {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`); 
-    myHeaders.append("access_token", token);
+    
 
     const requestOptions = {
         method: 'POST',
