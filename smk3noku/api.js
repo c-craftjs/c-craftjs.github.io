@@ -180,15 +180,28 @@ export function CihuyDeleteAPI(apiUrl, token, callback) {
     });
 }
 
-export async function CihuyPostApi2(url, body, token) {
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}` 
-    },
-    body: JSON.stringify(body)
-  });
-  const data = await response.json();
-  return data;
+export function CihuyPostAPI2(apiUrl, token, data, callback) {
+  const requestOptions = {
+      method: 'POST',
+      headers: new Headers({
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+          'access_token': token,
+      }),
+      body: JSON.stringify(data)
+  };
+
+  fetch(apiUrl, requestOptions)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+      })
+      .then(data => {
+          callback(null, data);
+      })
+      .catch(error => {
+          callback(error, null);
+      });
 }
