@@ -189,6 +189,7 @@ export function CihuyPostAPI2(apiUrl, token, data, callback) {
   const requestOptions = {
       method: 'POST',
       headers: {
+        'Accept': 'application/json', 
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
           'access_token': token,
