@@ -181,10 +181,7 @@ export function CihuyDeleteAPI(apiUrl, token, callback) {
 }
 
 export function CihuyPostAPI2(apiUrl, token, data, callback) {
-  if (!token) {
-      callback(new Error("Token is missing"), null);
-      return;
-  }
+  
 
   const requestOptions = {
       method: 'POST',
