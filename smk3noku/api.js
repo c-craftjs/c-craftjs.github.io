@@ -208,4 +208,3 @@ export function CihuyPostAPI2(apiUrl, token, data, callback) {
           callback(error, null);
       });
 }
-z
