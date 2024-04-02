@@ -181,16 +181,13 @@ export function CihuyDeleteAPI(apiUrl, token, callback) {
 }
 
 export function CihuyPostAPI2(apiUrl, token, data, callback) {
-  
+
 
   const requestOptions = {
       method: 'POST',
       headers: {
-        'Accept': 'application/json', 
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
-          'access_token': token,
-
       },
       body: JSON.stringify(data)
   };
@@ -209,3 +206,4 @@ export function CihuyPostAPI2(apiUrl, token, data, callback) {
           callback(error, null);
       });
 }
+z
